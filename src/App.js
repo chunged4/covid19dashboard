@@ -3,6 +3,9 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
+import counties from "./data/counties.json";
+import geo from "./data/geo.json";
+
 import "leaflet/dist/leaflet.css";
 import "./App.css";
 
@@ -15,7 +18,7 @@ const createClusterCustomIcon = function (cluster) {
 	return L.divIcon({
 		html: `<span>${cluster.getChildCount()}</span>`,
 		className: "custom-marker-cluster",
-		iconSize: L.point(30, 30, true),
+		iconSize: L.point(35, 35, true),
 	});
 };
 
@@ -43,20 +46,23 @@ function App() {
 						opacity: 1,
 						fillOpacity: 0.5,
 					}}>
-					<Marker
-						position={[34, -118.2]}
-						icon={customIcon}
-						title="Los Angeles"
-					/>
-					<Marker
-						position={[33.75, -118]}
-						icon={customIcon}
-						title="San Diego"
-					/>
-					<Marker position={[34, -117.5]} icon={customIcon} title="Riverside" />
-					<Marker position={[32.75, -117.1]} icon={customIcon} title="Four" />
-					<Marker position={[33.75, -117.95]} icon={customIcon} title="Five" />
-					<Marker position={[33.75, -117.96]} icon={customIcon} title="Six" />
+					{counties.map((county) => {
+						const lng = geo[county.fips]?.lng;
+						const lat = geo[county.fips]?.lat;
+
+						// Check if both lat and lng exist before rendering the Marker
+						if (lat !== undefined && lng !== undefined) {
+							return (
+								<Marker
+									position={[lat, lng]}
+									icon={customIcon}
+									title={county.county}
+								/>
+							);
+						}
+
+						return null; // Return null if either lat or lng is missing
+					})}
 				</MarkerClusterGroup>
 			</MapContainer>
 		</div>
