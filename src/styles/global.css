@@ -72,3 +72,25 @@ li {
 	text-indent: 0;
 	list-style-type: none;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #424242 #d6d6d6;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #25292e;
+	border-radius: 10px;
+	border: 3px solid #2f3438;
+}

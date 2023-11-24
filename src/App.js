@@ -1,6 +1,7 @@
 import React from "react";
 import Map from "./components/Map";
 import Navbar from "./components/Navbar";
+import Bargraph from "./components/Bargraph";
 import "./styles/app.css";
 import "leaflet/dist/leaflet.css";
 
@@ -20,7 +21,9 @@ function App() {
 					<Map />
 				</div>
 				<div className="table-area"></div>
-				<div className="histogram-area"></div>
+				<div className="histogram-area">
+					<Bargraph />
+				</div>
 				<div className="bargraph-area"></div>
 			</div>
 		</NavbarProvider>

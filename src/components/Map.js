@@ -29,7 +29,7 @@ const Map = () => {
 			/>
 			<MarkerClusterGroup
 				iconCreateFunction={createClusterCustomIcon}
-				maxClusterRadius={125}
+				maxClusterRadius={100}
 				spiderfyOnMaxZoom={true}
 				showCoverageOnHover={true}
 				polygonOptions={{
