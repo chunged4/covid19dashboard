@@ -1,0 +1,427 @@
+{
+    "01": {
+      "state": "AL",
+      "name": "Alabama",
+      "coordinates": {
+        "latitude": 32.3777,
+        "longitude": -86.3006
+      }
+    },
+    "02": {
+      "state": "AK",
+      "name": "Alaska",
+      "coordinates": {
+        "latitude": 58.3019,
+        "longitude": -134.4197
+      }
+    },
+    "04": {
+      "state": "AZ",
+      "name": "Arizona",
+      "coordinates": {
+        "latitude": 33.4484,
+        "longitude": -112.0740
+      }
+    },
+    "05": {
+      "state": "AR",
+      "name": "Arkansas",
+      "coordinates": {
+        "latitude": 34.7465,
+        "longitude": -92.2896
+      }
+    },
+    "06": {
+      "state": "CA",
+      "name": "California",
+      "coordinates": {
+        "latitude": 38.5767,
+        "longitude": -121.4934
+      }
+    },
+    "08": {
+      "state": "CO",
+      "name": "Colorado",
+      "coordinates": {
+        "latitude": 39.7392,
+        "longitude": -104.9903
+      }
+    },
+    "09": {
+      "state": "CT",
+      "name": "Connecticut",
+      "coordinates": {
+        "latitude": 41.7637,
+        "longitude": -72.6851
+      }
+    },
+    "10": {
+      "state": "DE",
+      "name": "Delaware",
+      "coordinates": {
+        "latitude": 39.1582,
+        "longitude": -75.5244
+      }
+    },
+    "11": {
+      "state": "DC",
+      "name": "District of Columbia",
+      "coordinates": {
+        "latitude": 38.8951,
+        "longitude": -77.0364
+      }
+    },
+    "12": {
+      "state": "FL",
+      "name": "Florida",
+      "coordinates": {
+        "latitude": 30.4383,
+        "longitude": -84.2807
+      }
+    },
+    "13": {
+      "state": "GA",
+      "name": "Georgia",
+      "coordinates": {
+        "latitude": 33.7490,
+        "longitude": -84.3880
+      }
+    },
+    "15": {
+      "state": "HI",
+      "name": "Hawaii",
+      "coordinates": {
+        "latitude": 21.3069,
+        "longitude": -157.8583
+      }
+    },
+    "16": {
+      "state": "ID",
+      "name": "Idaho",
+      "coordinates": {
+        "latitude": 43.6150,
+        "longitude": -116.2023
+      }
+    },
+    "17": {
+      "state": "IL",
+      "name": "Illinois",
+      "coordinates": {
+        "latitude": 39.7817,
+        "longitude": -89.6501
+      }
+    },
+    "18": {
+      "state": "IN",
+      "name": "Indiana",
+      "coordinates": {
+        "latitude": 39.7684,
+        "longitude": -86.1581
+      }
+    },
+    "19": {
+      "state": "IA",
+      "name": "Iowa",
+      "coordinates": {
+        "latitude": 41.5908,
+        "longitude": -93.6208
+      }
+    },
+    "20": {
+      "state": "KS",
+      "name": "Kansas",
+      "coordinates": {
+        "latitude": 39.0558,
+        "longitude": -95.6890
+      }
+    },
+    "21": {
+      "state": "KY",
+      "name": "Kentucky",
+      "coordinates": {
+        "latitude": 38.2009,
+        "longitude": -84.8733
+      }
+    },
+    "22": {
+      "state": "LA",
+      "name": "Louisiana",
+      "coordinates": {
+        "latitude": 30.4583,
+        "longitude": -91.1403
+      }
+    },
+    "23": {
+      "state": "ME",
+      "name": "Maine",
+      "coordinates": {
+        "latitude": 44.3106,
+        "longitude": -69.7795
+      }
+    },
+    "24": {
+      "state": "MD",
+      "name": "Maryland",
+      "coordinates": {
+        "latitude": 39.9784,
+        "longitude": -76.4922
+      }
+    },
+    "25": {
+      "state": "MA",
+      "name": "Massachusetts",
+      "coordinates": {
+        "latitude": 42.3601,
+        "longitude": -71.0589
+      }
+    },
+    "26": {
+      "state": "MI",
+      "name": "Michigan",
+      "coordinates": {
+        "latitude": 42.7325,
+        "longitude": -84.5555
+      }
+    },
+    "27": {
+      "state": "MN",
+      "name": "Minnesota",
+      "coordinates": {
+        "latitude": 44.9537,
+        "longitude": -93.0900
+      }
+    },
+    "28": {
+      "state": "MS",
+      "name": "Mississippi",
+      "coordinates": {
+        "latitude": 32.2988,
+        "longitude": -90.1848
+      }
+    },
+    "29": {
+      "state": "MO",
+      "name": "Missouri",
+      "coordinates": {
+        "latitude": 38.5767,
+        "longitude": -92.1735
+      }
+    },
+    "30": {
+      "state": "MT",
+      "name": "Montana",
+      "coordinates": {
+        "latitude": 46.5891,
+        "longitude": -112.0391
+      }
+    },
+    "31": {
+      "state": "NE",
+      "name": "Nebraska",
+      "coordinates": {
+        "latitude": 40.8136,
+        "longitude": -96.7026
+      }
+    },
+    "32": {
+      "state": "NV",
+      "name": "Nevada",
+      "coordinates": {
+        "latitude": 39.1638,
+        "longitude": -119.7674
+      }
+    },
+    "33": {
+      "state": "NH",
+      "name": "New Hampshire",
+      "coordinates": {
+        "latitude": 43.2081,
+        "longitude": -71.5374
+      }
+    },
+    "34": {
+      "state": "NJ",
+      "name": "New Jersey",
+      "coordinates": {
+        "latitude": 40.2206,
+        "longitude": -74.7597
+      }
+    },
+    "35": {
+      "state": "NM",
+      "name": "New Mexico",
+      "coordinates": {
+        "latitude": 35.6869,
+        "longitude": -105.9378
+      }
+    },
+    "36": {
+      "state": "NY",
+      "name": "New York",
+      "coordinates": {
+        "latitude": 42.6526,
+        "longitude": -73.7562
+      }
+    },
+    "37": {
+      "state": "NC",
+      "name": "North Carolina",
+      "coordinates": {
+        "latitude": 35.7796,
+        "longitude": -78.6382
+      }
+    },
+    "38": {
+      "state": "ND",
+      "name": "North Dakota",
+      "coordinates": {
+        "latitude": 46.8083,
+        "longitude": -100.7837
+      }
+    },
+    "39": {
+      "state": "OH",
+      "name": "Ohio",
+      "coordinates": {
+        "latitude": 39.9612,
+        "longitude": -82.9988
+      }
+    },
+    "40": {
+      "state": "OK",
+      "name": "Oklahoma",
+      "coordinates": {
+        "latitude": 35.4676,
+        "longitude": -97.5164
+      }
+    },
+    "41": {
+      "state": "OR",
+      "name": "Oregon",
+      "coordinates": {
+        "latitude": 44.9429,
+        "longitude": -123.0351
+      }
+    },
+    "42": {
+      "state": "PA",
+      "name": "Pennsylvania",
+      "coordinates": {
+        "latitude": 40.2732,
+        "longitude": -76.8867
+      }
+    },
+    "44": {
+      "state": "RI",
+      "name": "Rhode Island",
+      "coordinates": {
+        "latitude": 41.8236,
+        "longitude": -71.4227
+      }
+    },
+    "45": {
+      "state": "SC",
+      "name": "South Carolina",
+      "coordinates": {
+        "latitude": 34.0007,
+        "longitude": -81.0348
+      }
+    },
+    "46": {
+      "state": "SD",
+      "name": "South Dakota",
+      "coordinates": {
+        "latitude": 44.3683,
+        "longitude": -100.3510
+      }
+    },
+    "47": {
+      "state": "TN",
+      "name": "Tennessee",
+      "coordinates": {
+        "latitude": 36.1627,
+        "longitude": -86.7816
+      }
+    },
+    "48": {
+      "state": "TX",
+      "name": "Texas",
+      "coordinates": {
+        "latitude": 30.2500,
+        "longitude": -97.7500
+      }
+    },
+    "49": {
+      "state": "UT",
+      "name": "Utah",
+      "coordinates": {
+        "latitude": 40.7608,
+        "longitude": -111.8910
+      }
+    },
+    "50": {
+      "state": "VT",
+      "name": "Vermont",
+      "coordinates": {
+        "latitude": 44.2601,
+        "longitude": -72.5764
+      }
+    },
+    "51": {
+      "state": "VA",
+      "name": "Virginia",
+      "coordinates": {
+        "latitude": 37.5407,
+        "longitude": -77.4360
+      }
+    },
+    "53": {
+      "state": "WA",
+      "name": "Washington",
+      "coordinates": {
+        "latitude": 47.0379,
+        "longitude": -122.9007
+      }
+    },
+    "54": {
+      "state": "WV",
+      "name": "West Virginia",
+      "coordinates": {
+        "latitude": 38.3498,
+        "longitude": -81.6326
+      }
+    },
+    "55": {
+      "state": "WI",
+      "name": "Wisconsin",
+      "coordinates": {
+        "latitude": 43.0731,
+        "longitude": -89.4012
+      }
+    },
+    "56": {
+      "state": "WY",
+      "name": "Wyoming",
+      "coordinates": {
+        "latitude": 41.1400,
+        "longitude": -104.8202
+      }
+    },
+    "69": {
+      "state": "MP",
+      "name": "Northern Mariana Islands",
+      "coordinates": {
+        "latitude": 15.1063,
+        "longitude": 145.7065
+      }
+    },
+    "72": {
+      "state": "PR",
+      "name": "Puerto Rico",
+      "coordinates": {
+        "latitude": 18.4655,
+        "longitude": -66.1057
+      }
+    }
+  }
+  

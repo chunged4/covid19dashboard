@@ -1,0 +1,61 @@
+.app {
+	background-color: #25292e;
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	gap: 26px;
+	grid-template-columns: 100px 5fr 4fr;
+	grid-template-rows: 80px 4fr 3fr;
+	grid-template-areas:
+		"navbar-area title-area title-area"
+		"navbar-area map-area table-area"
+		"navbar-area histogram-area bargraph-area";
+}
+
+.navbar-area {
+	background-color: #2f3438;
+	grid-area: navbar-area;
+}
+
+.title-area {
+	background-color: #25292e;
+	grid-area: title-area;
+	display: flex;
+	align-items: end;
+}
+
+.map-area {
+	overflow: hidden;
+	border-radius: 20px;
+	grid-area: map-area;
+	background-color: #2f3438;
+}
+
+.table-area {
+	border-radius: 20px;
+	grid-area: table-area;
+	background-color: #2f3438;
+	margin-right: 26px;
+}
+
+.histogram-area {
+	border-radius: 20px;
+	grid-area: histogram-area;
+	background-color: #2f3438;
+	margin-bottom: 26px;
+}
+
+.bargraph-area {
+	border-radius: 20px;
+	grid-area: bargraph-area;
+	background-color: #2f3438;
+	margin-bottom: 26px;
+	margin-right: 26px;
+}
+
+.title {
+	line-height: 35px;
+	font-size: 45px;
+	font-weight: 800;
+	color: white;
+}

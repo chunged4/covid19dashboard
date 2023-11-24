@@ -1,0 +1,54 @@
+.custom-marker-cluster {
+	position: relative;
+	background: #ff3e58;
+	border-radius: 50%;
+	color: white;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 32px;
+	text-align: center;
+	width: 32px;
+	height: 32px;
+	font-family: "Nunito", sans-serif;
+	font-weight: 700;
+	color: white;
+}
+
+.custom-marker-cluster:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: transparent;
+	border-radius: 50%;
+	border: 5px solid rgba(255, 62, 88, 0.5);
+	width: 40px; /* Adjust the width and height based on your design */
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.popup {
+	font-family: "Nunito", sans-serif;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.popup p {
+	margin: 0px !important;
+}
+
+.popup-text {
+	font-size: 14px;
+}
+
+.popup-color {
+	color: #ff3e58;
+}
+
+.popup-title {
+	font-size: 18px;
+	font-weight: 800;
+	padding-bottom: 8px;
+}
