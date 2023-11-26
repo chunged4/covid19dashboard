@@ -26,34 +26,33 @@
 
 .map-area {
 	overflow: hidden;
-	border-radius: 15px;
+	border-radius: 10px;
 	grid-area: map-area;
 	background-color: #2f3438;
 }
 
 .table-area {
-	border-radius: 15px;
+	border-radius: 10px;
 	grid-area: table-area;
 	background-color: #2f3438;
 	margin-right: 26px;
+overflow: auto;
 }
 
 .histogram-area {
-	border-radius: 15px;
+	border-radius: 10px;
 	grid-area: histogram-area;
 	background-color: #2f3438;
 	margin-bottom: 26px;
-	overflow-x: auto;
+	overflow: auto;
 }
 
 .bargraph-area {
-	border-radius: 15px;
+	border-radius: 10px;
 	grid-area: bargraph-area;
 	background-color: #2f3438;
 	margin-bottom: 26px;
 	margin-right: 26px;
-	/* max-width: 752px;
-	overflow-x: auto; */
 }
 
 .title {
