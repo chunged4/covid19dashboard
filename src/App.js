@@ -2,6 +2,7 @@ import React from "react";
 import Map from "./components/Map";
 import Navbar from "./components/Navbar";
 import Bargraph from "./components/Bargraph";
+import AreaGraph from "./components/AreaGraph";
 import "./styles/app.css";
 import "leaflet/dist/leaflet.css";
 
@@ -24,7 +25,9 @@ function App() {
 				<div className="histogram-area">
 					<Bargraph />
 				</div>
-				<div className="bargraph-area"></div>
+				<div className="bargraph-area">
+					<AreaGraph />
+				</div>
 			</div>
 		</NavbarProvider>
 	);
