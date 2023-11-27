@@ -1,24 +1,28 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import {
 	BarChart,
 	Bar,
-	Rectangle,
 	XAxis,
 	YAxis,
-	CartesianGrid,
 	Tooltip,
 	Legend,
 	ResponsiveContainer,
-	Label,
 } from "recharts";
 import countyData from "../data/countyData.json";
 
-export default class Example extends PureComponent {
-	render() {
-		return (
+const Example = () => {
+	const legendFormatter = (value, entry) => {
+		// You can customize the legend label here based on the dataKey
+		if (entry.dataKey === "actuals.deaths") {
+			return "Deaths";
+		}
+		// Default label
+		return value;
+	};
+
+	return (
+		<ResponsiveContainer width={8000} height={300}>
 			<BarChart
-				width={8000}
-				height={300}
 				data={countyData}
 				margin={{
 					top: 40,
@@ -29,10 +33,12 @@ export default class Example extends PureComponent {
 				<XAxis dataKey="county" label="" tick={false} />
 				<YAxis />
 				<Tooltip />
-				{/* <Legend align="left" /> */}
-				{/* <Bar dataKey="actuals.deaths" fill="#ff3e58" /> */}
-				<Bar dataKey="actuals.cases" fill="#ff3e58" />
+				<Legend align="left" formatter={legendFormatter} />
+				<Bar dataKey="actuals.deaths" fill="#ff3e58" name="Deaths" />
+				{/* <Bar dataKey="actuals.cases" fill="#ff3e58" name="Custom Cases Label" /> */}
 			</BarChart>
-		);
-	}
-}
+		</ResponsiveContainer>
+	);
+};
+
+export default Example;

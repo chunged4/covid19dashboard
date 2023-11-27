@@ -1,0 +1,41 @@
+.content-layout {
+	background-color: #25292e;
+	width: 100%;
+	display: grid;
+	gap: 25px;
+	grid-template-columns: 5fr 4fr;
+	grid-template-rows: 4fr 3fr;
+	grid-template-areas:
+		"map-area table-area"
+		"histogram-area bargraph-area";
+	height: 90%;
+	padding: 25px;
+	padding-top: 0;
+}
+
+.map-area {
+	overflow: hidden;
+	border-radius: 10px;
+	grid-area: map-area;
+	background-color: #2f3438;
+}
+
+.table-area {
+	border-radius: 10px;
+	grid-area: table-area;
+	background-color: #2f3438;
+	overflow: auto;
+}
+
+.histogram-area {
+	border-radius: 10px;
+	grid-area: histogram-area;
+	background-color: #2f3438;
+	overflow: auto;
+}
+
+.bargraph-area {
+	border-radius: 10px;
+	grid-area: bargraph-area;
+	background-color: #2f3438;
+}

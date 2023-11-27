@@ -1,63 +1,39 @@
 .app {
-	background-color: #25292e;
-	width: 100%;
+	display: flex;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
 	height: 100vh;
-	display: grid;
-	gap: 26px;
-	grid-template-columns: 100px 5fr 4fr;
-	grid-template-rows: 80px 4fr 3fr;
-	grid-template-areas:
-		"navbar-area title-area title-area"
-		"navbar-area map-area table-area"
-		"navbar-area histogram-area bargraph-area";
+	width: 100%;
 }
 
-.navbar-area {
-	background-color: #2f3438;
-	grid-area: navbar-area;
-}
-
-.title-area {
-	background-color: #25292e;
-	grid-area: title-area;
+.titles {
+	height: 10%;
+	padding: 25px;
+	padding-bottom: 0px;
 	display: flex;
 	align-items: end;
+	background-color: #25292e;
+	gap: 50px;
+	padding-bottom: 25px;
 }
 
-.map-area {
-	overflow: hidden;
-	border-radius: 10px;
-	grid-area: map-area;
-	background-color: #2f3438;
-}
-
-.table-area {
-	border-radius: 10px;
-	grid-area: table-area;
-	background-color: #2f3438;
-	margin-right: 26px;
-overflow: auto;
-}
-
-.histogram-area {
-	border-radius: 10px;
-	grid-area: histogram-area;
-	background-color: #2f3438;
-	margin-bottom: 26px;
-	overflow: auto;
-}
-
-.bargraph-area {
-	border-radius: 10px;
-	grid-area: bargraph-area;
-	background-color: #2f3438;
-	margin-bottom: 26px;
-	margin-right: 26px;
-}
-
-.title {
-	line-height: 35px;
-	font-size: 45px;
-	font-weight: 800;
+.main-title {
 	color: white;
+	font-weight: 800;
+	line-height: 20px;
+	font-size: 50px;
+}
+
+.sub-title-wrapper {
+}
+
+.sub-title {
+	color: white;
+	margin-top: auto;
+	margin: 0;
+	line-height: 16px;
+	font-size: 20px;
 }
