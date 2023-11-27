@@ -10,14 +10,13 @@ import {
 } from "recharts";
 import { parse, format } from "date-fns";
 
-import data from "../data/dailyStateData.json";
+import stateTimeData from "../data/dailyByStateData.json";
 
-const Example = () => {
-	// Filter the data to only include entries with state === "CA"
-	const filteredData = data.filter((entry) => entry.state === "CA");
+const chart = (data) => {
+	console.log(data);
 
 	// Reverse the order of the filtered data
-	const reversedData = [...filteredData].reverse();
+	const reversedData = [...data].reverse();
 
 	// Format the date field
 	const formattedData = reversedData.map((entry) => ({
@@ -55,4 +54,20 @@ const Example = () => {
 	);
 };
 
-export default Example;
+const AreaGraph = () => {
+	const firstStateArr = Object.values(stateTimeData)[0];
+
+	return chart(firstStateArr);
+};
+
+// const AreaGraph = () => {
+// 	return (
+// 		<>
+// 			{Object.values(stateTimeData).map((stateArr) => {
+// 				return <div>{chart(stateArr)}</div>;
+// 			})}
+// 		</>
+// 	);
+// };
+
+export default AreaGraph;
