@@ -9,7 +9,7 @@ import "leaflet/dist/leaflet.css";
 import { NavbarProvider } from "./context/NavbarContext";
 
 function App() {
-	const [subtitle, setSubtitle] = useState("world");
+	const [subtitle, setSubtitle] = useState("World");
 	const updateSubtitle = (newSubtitle) => {
 		setSubtitle(newSubtitle);
 	};

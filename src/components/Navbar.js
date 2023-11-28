@@ -12,7 +12,7 @@ const Navbar = ({ updateSubtitle }) => {
 	const handleClick = (e) => {
 		const dataSetName = e.target.dataset.name;
 		setSelected(dataSetName);
-		updateSubtitle(dataSetName);
+		updateSubtitle(dataSetName.charAt(0).toUpperCase() + dataSetName.slice(1));
 	};
 
 	return (
