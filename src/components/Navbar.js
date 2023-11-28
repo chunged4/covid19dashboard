@@ -6,11 +6,13 @@ import usaIcon from "../images/flag-usa-solid.svg";
 import countyIcon from "../images/map-pin-solid.svg";
 import { NavbarContext } from "../context/NavbarContext";
 
-const Navbar = () => {
+const Navbar = ({ updateSubtitle }) => {
 	const [selected, setSelected] = useContext(NavbarContext);
 
 	const handleClick = (e) => {
-		setSelected(e.target.dataset.name);
+		const dataSetName = e.target.dataset.name;
+		setSelected(dataSetName);
+		updateSubtitle(dataSetName);
 	};
 
 	return (
