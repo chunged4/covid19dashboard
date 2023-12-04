@@ -7,27 +7,27 @@ import "./styles/app.css";
 import "leaflet/dist/leaflet.css";
 
 import { NavbarProvider } from "./context/NavbarContext";
+import { StatsProvider } from "./context/StatsContext";
+import MainTitles from "./components/MainTitles";
 
 function App() {
 	const [subtitle, setSubtitle] = useState("World");
+
 	const updateSubtitle = (newSubtitle) => {
 		setSubtitle(newSubtitle);
 	};
 
 	return (
 		<NavbarProvider>
-			<div className="app">
-				<Navbar updateSubtitle={updateSubtitle}/>
-				<div className="main-content">
-					<div className="titles">
-						<h1 className="main-title">Covid-19 Statistics</h1>
-						<div className="sub-title-wrapper">
-							<p className="sub-title">By {subtitle}</p>
-						</div>
+			<StatsProvider>
+				<div className="app">
+					<Navbar updateSubtitle={updateSubtitle} />
+					<div className="main-content">
+						<MainTitles subtitle={subtitle} />
+						<ContentLayout />
 					</div>
-					<ContentLayout />
 				</div>
-			</div>
+			</StatsProvider>
 		</NavbarProvider>
 	);
 }

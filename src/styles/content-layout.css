@@ -39,3 +39,46 @@
 	grid-area: bargraph-area;
 	background-color: #2f3438;
 }
+
+.area-title {
+	color: white;
+	font-size: 20px;
+	margin-left: 30px;
+	margin-top: 30px;
+	font-weight: 700;
+	margin-top: 10px;
+	width: fit-content;
+	padding: 0;
+	margin: 0;
+}
+
+.bar-graph-title-wrapper {
+	display: flex;
+	justify-content: space-between;
+	padding-inline: 50px;
+	transform: translate(0px, 30px);
+}
+
+.bar-graph-wrapper {
+}
+
+.bar-graph-nav {
+	color: #666;
+	display: flex;
+	gap: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bar-graph-nav-item {
+	cursor: pointer;
+}
+
+.bar-graph-selected {
+	color: #ff3e58;
+}
+
+.world-graph-title {
+	transform: translate(50px, 30px);
+}

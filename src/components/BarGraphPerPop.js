@@ -15,6 +15,41 @@ import stateData from "../data/stateData.json";
 import countyData from "../data/countyData.json";
 import geo from "../data/fipsStateToGeo.json";
 
+function calculatePerPopulation(dataArray) {
+	const resultArray = [];
+
+	dataArray.forEach((data) => {
+		const totalCases = data.actuals.cases;
+		const totalDeaths = data.actuals.deaths;
+		const totalPopulation = data.population;
+
+		if (
+			totalCases !== null &&
+			totalDeaths !== null &&
+			totalPopulation !== null &&
+			totalPopulation !== 0
+		) {
+			const casesPerPopulation = (totalCases / totalPopulation) * 1000000; // Adjust the scaling factor as needed
+			const deathsPerPopulation = (totalDeaths / totalPopulation) * 1000000; // Adjust the scaling factor as needed
+
+			resultArray.push({
+				...data,
+				casesPerPopulation: casesPerPopulation.toFixed(2),
+				deathsPerPopulation: deathsPerPopulation.toFixed(2),
+			});
+		} else {
+			// Handle cases where data is missing or population is 0
+			resultArray.push({
+				...data,
+				casesPerPopulation: null,
+				deathsPerPopulation: null,
+			});
+		}
+	});
+
+	return resultArray;
+}
+
 const processedData = countryData.map((item) => ({
 	...item,
 	cases: parseInt(item.cases, 10), // Convert "cases" to an integer
@@ -56,9 +91,10 @@ const getBarChart = (selected, barGraphSelected) => {
 				</BarChart>
 			);
 		case "state":
+			const stateDataPerPop = calculatePerPopulation(stateData);
 			return (
 				<BarChart
-					data={stateData}
+					data={stateDataPerPop}
 					margin={{
 						top: 70,
 						right: 40,
@@ -70,17 +106,24 @@ const getBarChart = (selected, barGraphSelected) => {
 					<Tooltip />
 					<Bar
 						dataKey={
-							barGraphSelected === "deaths" ? "actuals.deaths" : "actuals.cases"
+							barGraphSelected === "deaths"
+								? "deathsPerPopulation"
+								: "casesPerPopulation"
 						}
 						fill="#ff3e58"
-						name={barGraphSelected === "deaths" ? "Deaths" : "Cases"}
+						name={
+							barGraphSelected === "deaths"
+								? "Deaths Per Population"
+								: "Cases Per Population"
+						}
 					/>
 				</BarChart>
 			);
 		case "county":
+			const countyDataPerPop = calculatePerPopulation(countyData);
 			return (
 				<BarChart
-					data={countyData}
+					data={countyDataPerPop}
 					margin={{
 						top: 70,
 						right: 40,
@@ -92,10 +135,16 @@ const getBarChart = (selected, barGraphSelected) => {
 					<Tooltip />
 					<Bar
 						dataKey={
-							barGraphSelected === "deaths" ? "actuals.deaths" : "actuals.cases"
+							barGraphSelected === "deaths"
+								? "deathsPerPopulation"
+								: "casesPerPopulation"
 						}
 						fill="#ff3e58"
-						name={barGraphSelected === "deaths" ? "Deaths" : "Cases"}
+						name={
+							barGraphSelected === "deaths"
+								? "Deaths Per Population"
+								: "Cases Per Population"
+						}
 					/>
 				</BarChart>
 			);
