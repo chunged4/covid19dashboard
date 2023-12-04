@@ -47,13 +47,6 @@
 		brightness(107%) contrast(101%);
 }
 
-.bar-graph-title-wrapper {
-	display: flex;
-	justify-content: space-between;
-	padding-inline: 50px;
-	transform: translate(0px, 30px);
-}
-
 .stats-nav {
 	color: #666;
 	display: flex;

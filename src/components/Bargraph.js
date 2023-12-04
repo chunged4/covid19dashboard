@@ -17,7 +17,8 @@ import geo from "../data/fipsStateToGeo.json";
 
 const processedData = countryData.map((item) => ({
 	...item,
-	cases: parseInt(item.cases, 10), // Convert "cases" to an integer
+	cases: parseInt(item.cases.replace(/,/g, ""), 10), // Remove commas and convert "cases" to an integer
+	deaths: parseInt(item.deaths.replace(/,/g, ""), 10),
 }));
 
 const getGraphWidth = (selected) => {
@@ -34,17 +35,11 @@ const getGraphWidth = (selected) => {
 };
 
 const getBarChart = (selected, barGraphSelected) => {
+	console.log(processedData);
 	switch (selected) {
 		case "world":
 			return (
-				<BarChart
-					data={processedData}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={processedData}>
 					<XAxis dataKey="country_name" label="" />
 					<YAxis />
 					<Tooltip />
@@ -57,14 +52,7 @@ const getBarChart = (selected, barGraphSelected) => {
 			);
 		case "state":
 			return (
-				<BarChart
-					data={stateData}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={stateData}>
 					<XAxis dataKey="state" label="" />
 					<YAxis />
 					<Tooltip />
@@ -79,14 +67,7 @@ const getBarChart = (selected, barGraphSelected) => {
 			);
 		case "county":
 			return (
-				<BarChart
-					data={countyData}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={countyData}>
 					<XAxis dataKey="county" label="" tick={false} />
 					<YAxis />
 					<Tooltip />
@@ -108,7 +89,7 @@ const Example = ({ barGraphSelected }) => {
 	const [selected, setSelected] = useContext(NavbarContext);
 
 	return (
-		<ResponsiveContainer width={getGraphWidth(selected)} height={300}>
+		<ResponsiveContainer width={getGraphWidth(selected)} height={250}>
 			{getBarChart(selected, barGraphSelected)}
 		</ResponsiveContainer>
 	);

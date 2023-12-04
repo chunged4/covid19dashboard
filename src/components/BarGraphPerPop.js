@@ -15,6 +15,41 @@ import stateData from "../data/stateData.json";
 import countyData from "../data/countyData.json";
 import geo from "../data/fipsStateToGeo.json";
 
+function calculatePerPopulationCountry(countryDataArray) {
+	const resultArray = [];
+
+	countryDataArray.forEach((data) => {
+		const totalCases = parseInt(data.cases.replace(/,/g, ""), 10);
+		const totalDeaths = parseInt(data.deaths.replace(/,/g, ""), 10);
+		const totalPopulation = data.population;
+
+		if (
+			!isNaN(totalCases) &&
+			!isNaN(totalDeaths) &&
+			!isNaN(totalPopulation) &&
+			totalPopulation !== 0
+		) {
+			const casesPerPopulation = (totalCases / totalPopulation) * 1000000;
+			const deathsPerPopulation = (totalDeaths / totalPopulation) * 1000000;
+
+			resultArray.push({
+				...data,
+				casesPerPopulation: casesPerPopulation.toFixed(2),
+				deathsPerPopulation: deathsPerPopulation.toFixed(2),
+			});
+		} else {
+			// Handle cases where data is missing or population is 0
+			resultArray.push({
+				...data,
+				casesPerPopulation: null,
+				deathsPerPopulation: null,
+			});
+		}
+	});
+
+	return resultArray;
+}
+
 function calculatePerPopulation(dataArray) {
 	const resultArray = [];
 
@@ -50,11 +85,6 @@ function calculatePerPopulation(dataArray) {
 	return resultArray;
 }
 
-const processedData = countryData.map((item) => ({
-	...item,
-	cases: parseInt(item.cases, 10), // Convert "cases" to an integer
-}));
-
 const getGraphWidth = (selected) => {
 	switch (selected) {
 		case "world":
@@ -71,38 +101,35 @@ const getGraphWidth = (selected) => {
 const getBarChart = (selected, barGraphSelected) => {
 	switch (selected) {
 		case "world":
+			const countryDataPerPop = calculatePerPopulationCountry(countryData);
 			return (
-				<BarChart
-					data={processedData}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={countryDataPerPop}>
 					<XAxis dataKey="country_name" label="" />
-					<YAxis />
+					<YAxis
+						domain={barGraphSelected === "deaths" ? [0, 6500] : [0, 700000]}
+					/>
 					<Tooltip />
 					<Bar
-						dataKey={barGraphSelected === "deaths" ? "deaths" : "cases"}
+						dataKey={
+							barGraphSelected === "deaths"
+								? "deathsPerPopulation"
+								: "casesPerPopulation"
+						}
 						fill="#ff3e58"
-						name={barGraphSelected === "deaths" ? "Deaths" : "Cases"}
+						name={
+							barGraphSelected === "deaths" ? "Deaths" : "Cases Per Population"
+						}
 					/>
 				</BarChart>
 			);
 		case "state":
 			const stateDataPerPop = calculatePerPopulation(stateData);
 			return (
-				<BarChart
-					data={stateDataPerPop}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={stateDataPerPop}>
 					<XAxis dataKey="state" label="" />
-					<YAxis />
+					<YAxis
+						domain={barGraphSelected === "deaths" ? [0, 5000] : [0, 120000]}
+					/>
 					<Tooltip />
 					<Bar
 						dataKey={
@@ -120,18 +147,13 @@ const getBarChart = (selected, barGraphSelected) => {
 				</BarChart>
 			);
 		case "county":
-			const countyDataPerPop = calculatePerPopulation(countyData);
+			const newData = calculatePerPopulation(countyData);
 			return (
-				<BarChart
-					data={countyDataPerPop}
-					margin={{
-						top: 70,
-						right: 40,
-						left: 40,
-						bottom: 0,
-					}}>
+				<BarChart data={newData}>
 					<XAxis dataKey="county" label="" tick={false} />
-					<YAxis />
+					<YAxis
+						domain={barGraphSelected === "deaths" ? [0, 6000] : [0, 800000]}
+					/>
 					<Tooltip />
 					<Bar
 						dataKey={
@@ -157,7 +179,7 @@ const Example = ({ barGraphSelected }) => {
 	const [selected, setSelected] = useContext(NavbarContext);
 
 	return (
-		<ResponsiveContainer width={getGraphWidth(selected)} height={300}>
+		<ResponsiveContainer width={getGraphWidth(selected)} height={250}>
 			{getBarChart(selected, barGraphSelected)}
 		</ResponsiveContainer>
 	);
