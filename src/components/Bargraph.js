@@ -39,7 +39,11 @@ const getBarChart = (selected, barGraphSelected) => {
 	switch (selected) {
 		case "world":
 			return (
-				<BarChart data={processedData}>
+				<BarChart
+					data={processedData}
+					margin={{
+						left: 50,
+					}}>
 					<XAxis dataKey="country_name" label="" />
 					<YAxis />
 					<Tooltip />
@@ -52,7 +56,11 @@ const getBarChart = (selected, barGraphSelected) => {
 			);
 		case "state":
 			return (
-				<BarChart data={stateData}>
+				<BarChart
+					data={stateData}
+					margin={{
+						left: 50,
+					}}>
 					<XAxis dataKey="state" label="" />
 					<YAxis />
 					<Tooltip />
@@ -67,7 +75,11 @@ const getBarChart = (selected, barGraphSelected) => {
 			);
 		case "county":
 			return (
-				<BarChart data={countyData}>
+				<BarChart
+					data={countyData}
+					margin={{
+						left: 40,
+					}}>
 					<XAxis dataKey="county" label="" tick={false} />
 					<YAxis />
 					<Tooltip />

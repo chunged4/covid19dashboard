@@ -4,6 +4,7 @@ import Bargraph from "./Bargraph";
 import BarGraphPerPop from "./BarGraphPerPop";
 import AreaGraph from "./AreaGraph";
 import DataTable from "./DataTable";
+import DataTablePerPop from "./DataTablePerPop";
 import "../styles/content-layout.css";
 import WorldBarGraph from "./WorldBarGraph";
 import { NavbarContext } from "../context/NavbarContext";
@@ -27,8 +28,6 @@ const ContentLayout = () => {
 	const [selectedStats, setSelectedStats] = useContext(StatsContext);
 	const [barGraphSelected, setBarGraphSelected] = useState("cases");
 
-	console.log(selectedStats);
-
 	const handleBarGraphClick = (option) => {
 		setBarGraphSelected(option);
 	};
@@ -39,7 +38,7 @@ const ContentLayout = () => {
 				<Map />
 			</div>
 			<div className="table-area">
-				<DataTable />
+				{selectedStats === "total" ? <DataTable /> : <DataTablePerPop />}
 			</div>
 			<div className="histogram-area">
 				<div className="bar-graph-title-wrapper">

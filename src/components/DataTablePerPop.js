@@ -1,14 +1,6 @@
 import React, { useContext } from "react";
 import { NavbarContext } from "../context/NavbarContext";
-import {
-	BarChart,
-	Bar,
-	XAxis,
-	YAxis,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-} from "recharts";
+import Table from "react-bootstrap/Table";
 
 import countryData from "../data/countryData.json";
 import stateData from "../data/stateData.json";
@@ -85,116 +77,99 @@ function calculatePerPopulation(dataArray) {
 	return resultArray;
 }
 
-const getGraphWidth = (selected) => {
-	switch (selected) {
-		case "world":
-			return 950;
-		case "state":
-			return 950;
-		case "county":
-			return 8000;
-		default:
-			return null;
-	}
-};
-
-const getBarChart = (selected, barGraphSelected) => {
+const getTable = (selected) => {
 	switch (selected) {
 		case "world":
 			const countryDataPerPop = calculatePerPopulationCountry(countryData);
 			return (
-				<BarChart
-					data={countryDataPerPop}
-					margin={{
-						left: 40,
-					}}>
-					<XAxis dataKey="country_name" label="" />
-					<YAxis
-						domain={barGraphSelected === "deaths" ? [0, 6500] : [0, 700000]}
-					/>
-					<Tooltip />
-					<Bar
-						dataKey={
-							barGraphSelected === "deaths"
-								? "deathsPerPopulation"
-								: "casesPerPopulation"
-						}
-						fill="#ff3e58"
-						name={
-							barGraphSelected === "deaths" ? "Deaths" : "Cases Per Population"
-						}
-					/>
-				</BarChart>
+				<>
+					<thead>
+						<tr>
+							<th>Country</th>
+							<th>Total Tests</th>
+							<th>Cases Per Population</th>
+							<th>Deaths Per Population</th>
+						</tr>
+					</thead>
+					<tbody>
+						{countryDataPerPop.map((country) => (
+							<tr>
+								<td>{country.country_name}</td>
+								<td>{country.total_tests}</td>
+								<td>{country.casesPerPopulation}</td>
+								<td>{country.deathsPerPopulation}</td>
+							</tr>
+						))}
+					</tbody>
+				</>
 			);
 		case "state":
 			const stateDataPerPop = calculatePerPopulation(stateData);
 			return (
-				<BarChart
-					data={stateDataPerPop}
-					margin={{
-						left: 40,
-					}}>
-					<XAxis dataKey="state" label="" />
-					<YAxis
-						domain={barGraphSelected === "deaths" ? [0, 5000] : [0, 120000]}
-					/>
-					<Tooltip />
-					<Bar
-						dataKey={
-							barGraphSelected === "deaths"
-								? "deathsPerPopulation"
-								: "casesPerPopulation"
-						}
-						fill="#ff3e58"
-						name={
-							barGraphSelected === "deaths"
-								? "Deaths Per Population"
-								: "Cases Per Population"
-						}
-					/>
-				</BarChart>
+				<>
+					<thead>
+						<tr>
+							<th>State</th>
+							<th>Population</th>
+							<th>Cases Per Population</th>
+							<th>Deaths Per Population</th>
+						</tr>
+					</thead>
+					<tbody>
+						{stateDataPerPop.map((state) => {
+							const stateName = geo[state.fips]?.name;
+
+							return (
+								<tr>
+									<td>{stateName}</td>
+									<td>{state.population}</td>
+									<td>{state.casesPerPopulation}</td>
+									<td>{state.deathsPerPopulation}</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</>
 			);
 		case "county":
 			const newData = calculatePerPopulation(countyData);
 			return (
-				<BarChart
-					data={newData}
-					margin={{
-						left: 40,
-					}}>
-					<XAxis dataKey="county" label="" tick={false} />
-					<YAxis
-						domain={barGraphSelected === "deaths" ? [0, 6000] : [0, 800000]}
-					/>
-					<Tooltip />
-					<Bar
-						dataKey={
-							barGraphSelected === "deaths"
-								? "deathsPerPopulation"
-								: "casesPerPopulation"
-						}
-						fill="#ff3e58"
-						name={
-							barGraphSelected === "deaths"
-								? "Deaths Per Population"
-								: "Cases Per Population"
-						}
-					/>
-				</BarChart>
+				<>
+					<thead>
+						<tr>
+							<th>State</th>
+							<th>County</th>
+							<th>Population</th>
+							<th>Cases Per Population</th>
+							<th>Deaths Per Population</th>
+						</tr>
+					</thead>
+					<tbody>
+						{newData.map((county) => (
+							<tr>
+								<td>{county.state}</td>
+								<td>{county.county}</td>
+								<td>{county.population}</td>
+								<td>{county.casesPerPopulation}</td>
+								<td>{county.deathsPerPopulation}</td>
+							</tr>
+						))}
+					</tbody>
+				</>
 			);
 		default:
 			return null;
 	}
 };
 
-const Example = ({ barGraphSelected }) => {
+function DataTable() {
 	const [selected, setSelected] = useContext(NavbarContext);
 
 	return (
-		<ResponsiveContainer width={getGraphWidth(selected)} height={250}>
-			{getBarChart(selected, barGraphSelected)}
-		</ResponsiveContainer>
+		<Table striped bordered hover variant="dark">
+			{getTable(selected)}
+		</Table>
 	);
-};
+}
 
-export default Example;
+export default DataTable;
