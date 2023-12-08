@@ -17,7 +17,6 @@ const CountryCluster = () => {
 		const lng = geo[country.country_name]?.lng;
 		const lat = geo[country.country_name]?.lat;
 
-		// Check if both lat and lng exist before rendering the Marker
 		if (lat !== undefined && lng !== undefined) {
 			return (
 				<Marker
