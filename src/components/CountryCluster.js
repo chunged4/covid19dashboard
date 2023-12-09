@@ -14,6 +14,7 @@ function getIcon(width, height) {
 
 const CountryCluster = () => {
 	return countries.map((country, index) => {
+		// Get Data
 		const lng = geo[country.country_name]?.lng;
 		const lat = geo[country.country_name]?.lat;
 
