@@ -1,4 +1,4 @@
-# 349-fullstack-project
+# 349-covid19dashboard
 
 ## Participants
 
