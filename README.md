@@ -25,7 +25,7 @@ git clone https://github.com/chunged4/covid19dashboard
 npm install
 ```
 
-**3. From within the /349-backend folder run the command:**
+**3. From within the /covid19dashboard folder run the command:**
 
 ```
 npm run start
