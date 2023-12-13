@@ -63,3 +63,11 @@
 .stats-nav-selected {
 	color: #ff3e58;
 }
+
+.loading-screen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #25292e;
+	height: 100vh;
+}

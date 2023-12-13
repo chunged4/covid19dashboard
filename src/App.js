@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import { NavbarProvider } from "./context/NavbarContext";
 import { StatsProvider } from "./context/StatsContext";
 import MainTitles from "./components/MainTitles";
+import Spinner from "./components/Spinner";
 
 function App() {
 	const [subtitle, setSubtitle] = useState("World");
@@ -46,7 +47,11 @@ function App() {
 
 	// Render "Loading..." if still loading
 	if (loading) {
-		return <p>Loading...</p>;
+		return (
+			<div className="loading-screen">
+				<Spinner />
+			</div>
+		);
 	}
 
 	// Render the actual content once data is ready
