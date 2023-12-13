@@ -4,6 +4,7 @@ import logo from "../images/logo.svg";
 import worldIcon from "../images/earth-americas-solid.svg";
 import usaIcon from "../images/flag-usa-solid.svg";
 import countyIcon from "../images/map-pin-solid.svg";
+import bookIcon from "../images/book-solid.svg";
 import { NavbarContext } from "../context/NavbarContext";
 
 const Navbar = ({ updateSubtitle }) => {
@@ -39,6 +40,14 @@ const Navbar = ({ updateSubtitle }) => {
 						data-name="county"
 						onClick={(e) => handleClick(e)}>
 						<img className="navbar-img" src={countyIcon} alt="Pin" />
+					</li>
+					<li
+						className={`navbar-item ${
+							selected === "sources" ? "selected" : ""
+						}`}
+						data-name="sources"
+						onClick={(e) => handleClick(e)}>
+						<img className="navbar-img" src={bookIcon} alt="Book" />
 					</li>
 				</ul>
 			</div>

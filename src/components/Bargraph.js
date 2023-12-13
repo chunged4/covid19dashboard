@@ -35,7 +35,6 @@ const getGraphWidth = (selected) => {
 };
 
 const getBarChart = (selected, barGraphSelected) => {
-	console.log(processedData);
 	switch (selected) {
 		case "world":
 			return (

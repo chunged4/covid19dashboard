@@ -9,6 +9,7 @@ import "../styles/content-layout.css";
 import WorldBarGraph from "./WorldBarGraph";
 import { NavbarContext } from "../context/NavbarContext";
 import { StatsContext } from "../context/StatsContext";
+import Sources from "./Sources";
 
 const getTitle = (selected) => {
 	switch (selected) {
@@ -23,7 +24,7 @@ const getTitle = (selected) => {
 	}
 };
 
-const ContentLayout = () => {
+const ContentLayout = ({ stateData, countyData }) => {
 	const [selected, setSelected] = useContext(NavbarContext);
 	const [selectedStats, setSelectedStats] = useContext(StatsContext);
 	const [barGraphSelected, setBarGraphSelected] = useState("cases");
@@ -32,13 +33,22 @@ const ContentLayout = () => {
 		setBarGraphSelected(option);
 	};
 
-	return (
+	return selected === "sources" ? (
+		<Sources />
+	) : (
 		<div className="content-layout">
 			<div className="map-area">
-				<Map />
+				{/* Pass stateData and countyData to Map component */}
+				<Map stateData={stateData} countyData={countyData} />
 			</div>
 			<div className="table-area">
-				{selectedStats === "total" ? <DataTable /> : <DataTablePerPop />}
+				{selectedStats === "total" ? (
+					// Pass stateData and countyData to DataTable component
+					<DataTable stateData={stateData} countyData={countyData} />
+				) : (
+					// Pass stateData and countyData to DataTablePerPop component
+					<DataTablePerPop stateData={stateData} countyData={countyData} />
+				)}
 			</div>
 			<div className="histogram-area">
 				<div className="bar-graph-title-wrapper">
@@ -62,9 +72,19 @@ const ContentLayout = () => {
 				</div>
 				<div className="bar-graph-wrapper">
 					{selectedStats === "total" ? (
-						<Bargraph barGraphSelected={barGraphSelected} />
+						// Pass stateData and countyData to Bargraph component
+						<Bargraph
+							barGraphSelected={barGraphSelected}
+							stateData={stateData}
+							countyData={countyData}
+						/>
 					) : (
-						<BarGraphPerPop barGraphSelected={barGraphSelected} />
+						// Pass stateData and countyData to BarGraphPerPop component
+						<BarGraphPerPop
+							barGraphSelected={barGraphSelected}
+							stateData={stateData}
+							countyData={countyData}
+						/>
 					)}
 				</div>
 			</div>

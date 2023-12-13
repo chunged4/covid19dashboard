@@ -13,8 +13,6 @@ import { parse, format } from "date-fns";
 import stateTimeData from "../data/dailyByStateData.json";
 
 const chart = (data) => {
-	console.log(data);
-
 	// Reverse the order of the filtered data
 	const reversedData = [...data].reverse();
 
