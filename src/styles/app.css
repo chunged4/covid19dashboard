@@ -11,7 +11,7 @@
 
 .titles {
 	height: 10%;
-	padding: 25px;
+	padding: 30px;
 	padding-bottom: 0px;
 	display: flex;
 	align-items: end;
@@ -21,6 +21,7 @@
 }
 
 .main-title {
+	height: 75%;
 	color: white;
 	font-weight: 800;
 	line-height: 20px;
@@ -29,6 +30,7 @@
 
 .sub-title-wrapper {
 	display: flex;
+	align-items: center;
 	gap: 16px;
 }
 
@@ -48,12 +50,16 @@
 }
 
 .stats-nav {
+	position: fixed;
+	top: 0;
+  	right: 0;
 	color: #666;
 	display: flex;
 	gap: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 28px;
 }
 
 .stats-nav-item {

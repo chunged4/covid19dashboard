@@ -13,7 +13,7 @@ const MainTitles = ({ subtitle }) => {
 		<div className="titles">
 			<h1 className="main-title">Covid-19 Statistics</h1>
 			<div className="sub-title-wrapper">
-				<p className="sub-title">By {subtitle}</p>
+				<p className="sub-title">{subtitle}</p>
 				<img src={caret} alt="" className="sub-title-icon" />
 			</div>
 			<ul className="stats-nav">
