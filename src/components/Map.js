@@ -65,7 +65,8 @@ function SetViewOnClick({ coords, zoom }) {
 	return null;
 }
 
-const Map = () => {
+const Map = ({ stateData, countyData }) => {
+	// Test
 	const [selected, setSelected] = useContext(NavbarContext);
 
 	return (
@@ -93,10 +94,11 @@ const Map = () => {
 					opacity: 1,
 					fillOpacity: 0.5,
 				}}>
-				{getSelected(selected)}
+				{getSelected(selected, stateData, countyData)}
 			</MarkerClusterGroup>
 		</MapContainer>
 	);
 };
 
 export default Map;
+
